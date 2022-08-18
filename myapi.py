@@ -65,6 +65,22 @@ def predictFromPost(data: PredictItem):
 
 
 # Will update the datasets and support model retraining.
+# Data to be POST'ed:
+# {
+#    "species":"dog",
+#    "symptoms":[
+#       "Attacking other animals",
+#       "humans and even inanimate objects",
+#       "Licking",
+#       "biting",
+#       "chewing at the bite site",
+#       "Fever",
+#       "Hypersensitivity",
+#       "Hiding in dark places"
+#    ],
+#   "disease": "cancer"
+# }
+
 @app.post("/update")
 def update(data: TrainingData):
     update_input = {'species': data.species,
