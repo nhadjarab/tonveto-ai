@@ -143,8 +143,6 @@ class Predictor:
         loss_form = torch.nn.CrossEntropyLoss()
         model.train()
 
-        accuracy_train = []
-
         for epoch in range(1000):
             optimizer.zero_grad()
             y_pred = model(x_train).squeeze(-1)
@@ -185,7 +183,7 @@ class Predictor:
         disease_catdog = catdog_dataset['Disease'].tolist()
         indices = torch.topk(self.model_catdog(torch.tensor(
             test_array, dtype=torch.float)).squeeze(-1), 2)[1].tolist()
-        return [disease_catdog[indices[0]].lower(), disease_catdog[indices[1]].lower()]
+        return [disease_catdog[indices[0]].lower()]
 
     def predict_disease_poultryLivestock(self, input):
         test_array = self.transform_input_poultryLivestock(input)
@@ -193,7 +191,7 @@ class Predictor:
         disease_poultryLivestock = poultryLivestock_dataset['Disease'].tolist()
         indices = torch.topk(self.model_poultryLivestock(torch.tensor(
             test_array, dtype=torch.float)).squeeze(-1), 2)[1].tolist()
-        return [disease_poultryLivestock[indices[0]].lower(), disease_poultryLivestock[indices[1]].lower()]
+        return [disease_poultryLivestock[indices[0]].lower()]
 
     def predict_disease(self, input):
         if input['species'].lower() in ['chat', 'chien']:
