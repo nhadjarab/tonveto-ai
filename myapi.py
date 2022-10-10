@@ -20,19 +20,18 @@ class TrainingData(BaseModel):
 
 @app.get("/")
 def root():
-    return {"FastAPI": "Hello World"}
+    return {"Ai tonveto.com"}
 
 
 # GET a list of symptoms
-# Example: GET localhost/symptoms/cat
+# Example: GET localhost/symptoms/chat
 @app.get("/symptoms/{species}")
 def symptoms(species: str):
     relevant_symptoms = []
 
-    if species.lower() in ['cat', 'dog']:
+    if species.lower() in ['chat', 'chien']:
         relevant_symptoms = pred.get_symptoms()[0]
-    elif species.lower() in ['poultry', 'livestock', 'cow', 'horse', 'goat', 'sheep', 'chicken', 'turkey', 'duck',
-                             'cattle', 'pig', 'donkey']:
+    elif species.lower() in ['volaille', 'betail', 'vache', 'cheval', 'chevre', 'mouton', 'poule', 'dinde', 'canard', 'cochon', 'ane']:
         relevant_symptoms = pred.get_symptoms()[1]
 
     return {"result": relevant_symptoms}
@@ -43,7 +42,7 @@ def symptoms(species: str):
 # Example: POST localhost/predict
 # Data to be POST'ed:
 # {
-#    "species":"dog",
+#    "species":"chien",
 #    "symptoms":[
 #       "Attacking other animals",
 #       "humans and even inanimate objects",
@@ -67,7 +66,7 @@ def predictFromPost(data: PredictItem):
 # Will update the datasets and support model retraining.
 # Data to be POST'ed:
 # {
-#    "species":"dog",
+#    "species":"chien",
 #    "symptoms":[
 #       "Attacking other animals",
 #       "humans and even inanimate objects",
