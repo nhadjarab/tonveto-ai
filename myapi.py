@@ -31,7 +31,7 @@ def symptoms(species: str):
 
     if species.lower() in ['chat', 'chien']:
         relevant_symptoms = pred.get_symptoms()[0]
-    elif species.lower() in ['volaille', 'betail', 'vache', 'cheval', 'chevre', 'mouton', 'poule', 'dinde', 'canard', 'cochon', 'ane']:
+    elif species.lower() in ['volaille', 'bétail', 'vache', 'cheval', 'chèvre', 'mouton', 'poule', 'dinde', 'canard', 'cochon', 'âne']:
         relevant_symptoms = pred.get_symptoms()[1]
 
     return {"result": relevant_symptoms}

@@ -196,7 +196,7 @@ class Predictor:
     def predict_disease(self, input):
         if input['species'].lower() in ['chat', 'chien']:
             return self.predict_disease_catdog(input)
-        elif input['species'].lower() in ['volaille', 'betail', 'vache', 'cheval', 'chevre', 'mouton', 'poule', 'dinde', 'canard','cochon', 'ane']:
+        elif input['species'].lower() in ['volaille', 'bétail', 'vache', 'cheval', 'chèvre', 'mouton', 'poule', 'dinde', 'canard','cochon', 'âne']:
             return self.predict_disease_poultryLivestock(input)
 
     def triggerTrain(self):
@@ -231,5 +231,5 @@ class Predictor:
     def update_dataset(self, update_input):
         if update_input['species'].lower() in ['chat', 'chien']:
             self.update_catDog_datasets(update_input)
-        elif update_input['species'].lower() in ['volaille', 'betail', 'vache', 'cheval', 'chevre', 'mouton', 'poule', 'dinde', 'canard', 'cochon', 'ane']:
+        elif update_input['species'].lower() in ['volaille', 'bétail', 'vache', 'cheval', 'chèvre', 'mouton', 'poule', 'dinde', 'canard', 'cochon', 'âne']:
             self.update_poultryLivestock_datasets(update_input)
